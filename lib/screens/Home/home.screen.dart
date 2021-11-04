@@ -24,10 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: <Widget>[
                     SizedBox(
                         height: 180,
-                        child: Image.asset("assets/main_logo.png",
+                        child: Image.asset("assets/images/main_logo.png",
                             fit: BoxFit.contain)),
+                    SizedBox(height: 10),
                     Text("Esta la pagina de Home",
                         style: TextStyle(fontSize: 20)),
+                    SizedBox(height: 20),
+                    ActionChip(label: Text("Cerrar sesión"), onPressed: () {})
                   ],
                 ))));
   }
