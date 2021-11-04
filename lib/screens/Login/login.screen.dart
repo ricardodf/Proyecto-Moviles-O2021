@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:planificador_escolar/screens/Home/home.screen.dart';
 import 'package:planificador_escolar/screens/Registration/registration.screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -56,7 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
         child: MaterialButton(
             padding: EdgeInsets.fromLTRB(20, 25, 20, 25),
             minWidth: MediaQuery.of(context).size.width,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
             child: Text("Iniciar Sesión",
                 textAlign: TextAlign.center,
                 style: TextStyle(
