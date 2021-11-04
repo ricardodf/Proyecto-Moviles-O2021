@@ -53,10 +53,10 @@ class _LoginScreenState extends State<LoginScreen> {
         borderRadius: BorderRadius.circular(30),
         color: Colors.redAccent,
         child: MaterialButton(
-            padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+            padding: EdgeInsets.fromLTRB(20, 25, 20, 25),
             minWidth: MediaQuery.of(context).size.width,
             onPressed: () {},
-            child: Text("Login",
+            child: Text("Iniciar Sesión",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 20,
@@ -84,11 +84,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 SizedBox(height: 45),
                                 emailField,
-                                SizedBox(height: 45),
+                                SizedBox(height: 25),
                                 passwordField,
-                                SizedBox(height: 45),
+                                SizedBox(height: 35),
                                 loginButton,
-                                SizedBox(height: 45),
+                                SizedBox(height: 15),
+                                Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text("¿No tienes cuenta? "),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Text(
+                                          "Registrate",
+                                          style: TextStyle(
+                                              color: Colors.redAccent,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
+                                        ),
+                                      )
+                                    ])
                               ])),
                     )))));
   }
