@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "954060823943",
+    "project_id": "planificadorescolar",
+    "storage_bucket": "planificadorescolar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954060823943:android:5fae33516c77b26afdc722",
+        "android_client_info": {
+          "package_name": "com.example.planificador_escolar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954060823943-dugsc7r0rk1qvpq0tdjlh2a3og8q1ekv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.planificador_escolar",
+            "certificate_hash": "bcada22962442cb30884cc50e0000dcf793a307b"
+          }
+        },
+        {
+          "client_id": "954060823943-0kk1batdgkiosjpr5atik54f8ojfej0l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeZ67yMalwJvpwY971wpWdR-xmUPYh8s8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954060823943-0kk1batdgkiosjpr5atik54f8ojfej0l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

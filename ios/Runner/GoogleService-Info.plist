@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>954060823943-6in8janeidj2i1np0fdifaoot7cp9qs9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.954060823943-6in8janeidj2i1np0fdifaoot7cp9qs9</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>954060823943-dugsc7r0rk1qvpq0tdjlh2a3og8q1ekv.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDRTaoHMLlbgi8UYl9Y6qS9YJ77dMNOVSE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>954060823943</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.planificadorEscolar</string>
+	<key>PROJECT_ID</key>
+	<string>planificadorescolar</string>
+	<key>STORAGE_BUCKET</key>
+	<string>planificadorescolar.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:954060823943:ios:3c7f255f42a726c2fdc722</string>
+</dict>
+</plist>
