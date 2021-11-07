@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:planificador_escolar/data/user.model.dart';
+import 'package:planificador_escolar/screens/Clases/clases.screen.dart';
 import 'package:planificador_escolar/screens/Login/login.screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,38 +31,39 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("HomeworkPal"),
-          centerTitle: true,
-        ),
-        body: Center(
-            child: Padding(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                        height: 180,
-                        child: Image.asset("assets/images/main_logo.png",
-                            fit: BoxFit.contain)),
-                    SizedBox(height: 10),
-                    Text("Bienvenido ${currentUser.name}",
-                        style: TextStyle(fontSize: 20)),
-                    SizedBox(height: 20),
-                    ActionChip(
-                        label: Text("Cerrar sesión"),
-                        onPressed: () {
-                          logout(context);
-                        })
-                  ],
-                ))));
-  }
-
-  Future<void> logout(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LoginScreen()));
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Homework Planner"),
+            centerTitle: true,
+            leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+            actions: [
+              IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.account_circle))
+            ],
+            elevation: 10,
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                colors: [Colors.redAccent, Colors.orangeAccent],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+              )),
+            ),
+            bottom: TabBar(indicatorColor: Colors.white, tabs: [
+              Tab(icon: Icon(Icons.my_library_books_outlined), text: 'Tareas'),
+              Tab(icon: Icon(Icons.menu_book_rounded), text: 'Clases'),
+              Tab(icon: Icon(Icons.calendar_today_rounded), text: 'Calendario'),
+            ]),
+          ),
+          body: TabBarView(
+            children: [
+              Icon(Icons.directions_car),
+              ClasesScreen(),
+              Icon(Icons.directions_bike),
+            ],
+          )),
+    );
   }
 }
