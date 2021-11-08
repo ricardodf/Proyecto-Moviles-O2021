@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:planificador_escolar/data/user.model.dart';
+import 'package:planificador_escolar/screens/Calendario/calendario.screen.dart';
 import 'package:planificador_escolar/screens/Clases/clases.screen.dart';
 import 'package:planificador_escolar/screens/Login/login.screen.dart';
 import 'package:planificador_escolar/screens/Tareas/tareas.screen.dart';
@@ -62,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               TareasScreen(),
               ClasesScreen(),
-              Icon(Icons.directions_bike),
+              CalendarioScreen(),
             ],
           )),
     );
