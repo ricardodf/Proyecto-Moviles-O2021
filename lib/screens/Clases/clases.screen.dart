@@ -174,7 +174,7 @@ class _ClasesScreenState extends State<ClasesScreen> {
           margin: EdgeInsets.all(20),
           color: Colors.green[50],
           child: Theme(
-            data: Theme.of(context).copyWith(cardColor: Colors.amber[100]),
+            data: Theme.of(context).copyWith(cardColor: Colors.deepPurple[100]),
             child: ExpansionPanelList(
               animationDuration: Duration(milliseconds: 1000),
               children: [

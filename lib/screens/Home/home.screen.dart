@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:planificador_escolar/data/user.model.dart';
 import 'package:planificador_escolar/screens/Clases/clases.screen.dart';
 import 'package:planificador_escolar/screens/Login/login.screen.dart';
+import 'package:planificador_escolar/screens/Tareas/tareas.screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -59,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           body: TabBarView(
             children: [
-              Icon(Icons.directions_car),
+              TareasScreen(),
               ClasesScreen(),
               Icon(Icons.directions_bike),
             ],
