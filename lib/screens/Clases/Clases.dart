@@ -17,7 +17,24 @@ class _ClasesState extends State<Clases> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.orange),
+      appBar: AppBar(
+        title: const Text("Homework Planner"),
+        centerTitle: true,
+        leading: IconButton(
+            onPressed: () {}, icon: const Icon(Icons.keyboard_return_outlined)),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
+        ],
+        elevation: 10,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            colors: [Colors.blueAccent, Colors.orangeAccent],
+            begin: Alignment.bottomRight,
+            end: Alignment.topLeft,
+          )),
+        ),
+      ),
       body: ListView(children: [
         //PANEL LIST 1
         Container(

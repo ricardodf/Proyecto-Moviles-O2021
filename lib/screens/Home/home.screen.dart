@@ -5,6 +5,7 @@ import 'package:planificador_escolar/data/user.model.dart';
 import 'package:planificador_escolar/screens/Calendario/calendario.screen.dart';
 import 'package:planificador_escolar/screens/Clases/clases.screen.dart';
 import 'package:planificador_escolar/screens/Login/login.screen.dart';
+import 'package:planificador_escolar/screens/Profile/Profile.dart';
 import 'package:planificador_escolar/screens/Tareas/tareas.screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,13 +43,17 @@ class _HomeScreenState extends State<HomeScreen> {
             leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
             actions: [
               IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.account_circle))
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => Profile()));
+                  },
+                  icon: const Icon(Icons.account_circle))
             ],
             elevation: 10,
             flexibleSpace: Container(
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                colors: [Colors.redAccent, Colors.orangeAccent],
+                colors: [Colors.blueAccent, Colors.orangeAccent],
                 begin: Alignment.bottomRight,
                 end: Alignment.topLeft,
               )),

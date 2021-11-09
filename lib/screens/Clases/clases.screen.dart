@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:planificador_escolar/screens/Clases/Clases.dart';
 
 class ClasesScreen extends StatefulWidget {
   const ClasesScreen({Key? key}) : super(key: key);
@@ -80,6 +81,20 @@ class _ClasesScreenState extends State<ClasesScreen> {
                                 color: Colors.black,
                                 fontFamily: 'Product Sans Regular')),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => Clases()));
+                            },
+                            icon: Icon(Icons.navigation_sharp),
+                            color: Colors.blue,
+                          )
+                        ],
+                      )
                     ],
                   ),
                   isExpanded: _expanded,
@@ -252,7 +267,7 @@ class _ClasesScreenState extends State<ClasesScreen> {
           _showDialog();
         },
         child: const Icon(Icons.add),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.blueAccent,
       ),
     );
   }
