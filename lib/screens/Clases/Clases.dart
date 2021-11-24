@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Home/home.screen.dart';
 
 class Clases extends StatefulWidget {
   const Clases({Key? key}) : super(key: key);
@@ -21,7 +22,11 @@ class _ClasesState extends State<Clases> {
         title: const Text("Homework Planner"),
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(Icons.keyboard_return_outlined)),
+            icon: Icon(Icons.arrow_back, color: Colors.blueAccent),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            }),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
         ],

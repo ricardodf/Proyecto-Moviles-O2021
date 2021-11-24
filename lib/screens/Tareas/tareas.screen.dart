@@ -30,7 +30,7 @@ class _TareasScreenState extends State<TareasScreen> {
                   const ListTile(
                     leading: Icon(Icons.home_work),
                     title: Text('Reporte Laboratorio 3'),
-                    subtitle: Text('Calidad de Software - 8 Nov (07:00)'),
+                    subtitle: Text('Calidad de Software - 12 Nov (07:00)'),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -56,7 +56,7 @@ class _TareasScreenState extends State<TareasScreen> {
                   const ListTile(
                     leading: Icon(Icons.book),
                     title: Text('Lectura'),
-                    subtitle: Text('Calidad de Software - 8 Nov (23:59)'),
+                    subtitle: Text('Calidad de Software - 12 Nov (23:59)'),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,

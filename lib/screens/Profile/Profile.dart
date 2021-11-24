@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Home/home.screen.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -15,7 +16,11 @@ class _ProfileState extends State<Profile> {
         title: const Text("Homework Planner"),
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(Icons.keyboard_return_outlined)),
+            icon: Icon(Icons.arrow_back, color: Colors.blueAccent),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            }),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
         ],
