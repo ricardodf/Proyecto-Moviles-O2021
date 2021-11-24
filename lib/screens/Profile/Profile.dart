@@ -12,10 +12,21 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange,
-        title: Text(
-          "My Profile",
-          style: TextStyle(fontFamily: 'Product Sans Regular'),
+        title: const Text("Homework Planner"),
+        centerTitle: true,
+        leading: IconButton(
+            onPressed: () {}, icon: const Icon(Icons.keyboard_return_outlined)),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
+        ],
+        elevation: 10,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            colors: [Colors.blueAccent, Colors.orangeAccent],
+            begin: Alignment.bottomRight,
+            end: Alignment.topLeft,
+          )),
         ),
       ),
       body: Column(
@@ -24,13 +35,13 @@ class _ProfileState extends State<Profile> {
           Align(alignment: Alignment.center),
           Container(
             child: CircleAvatar(
-                backgroundImage: AssetImage('assets/profile_picture.jpg'),
+                backgroundImage: AssetImage('assets/images/profile.png'),
                 maxRadius: 80),
           ),
           SizedBox(height: 25),
           Container(
             child: Text(
-              "Angélica Blinker",
+              "Ricardo",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 25,
@@ -39,7 +50,7 @@ class _ProfileState extends State<Profile> {
           ),
           Container(
             child: Text(
-              "angeblinker_@gmail.com",
+              "ricardo@gmail.com",
               style: TextStyle(
                   color: Colors.grey,
                   fontSize: 20,

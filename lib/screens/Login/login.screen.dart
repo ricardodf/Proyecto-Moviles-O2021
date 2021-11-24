@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final loginButton = Material(
         elevation: 5,
         borderRadius: BorderRadius.circular(30),
-        color: Colors.redAccent,
+        color: Colors.blueAccent,
         child: MaterialButton(
             padding: EdgeInsets.fromLTRB(20, 25, 20, 25),
             minWidth: MediaQuery.of(context).size.width,
@@ -103,8 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               children: <Widget>[
                                 SizedBox(
                                   height: 200,
-                                  child: Image.asset(
-                                      "assets/images/main_logo.png",
+                                  child: Image.asset("assets/images/Plan.png",
                                       fit: BoxFit.contain),
                                 ),
                                 SizedBox(height: 45),
@@ -129,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         child: Text(
                                           "Registrate",
                                           style: TextStyle(
-                                              color: Colors.redAccent,
+                                              color: Colors.blueAccent,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 15),
                                         ),
