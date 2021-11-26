@@ -87,7 +87,7 @@ class _AddClaseFormState extends State<AddClaseForm> {
                                 CustomFormField(
                                   isLabelEnabled: false,
                                   controller: _maestroController,
-                                  focusNode: widget.materiaFocusNode,
+                                  focusNode: widget.maestroFocusNode,
                                   keyboardType: TextInputType.text,
                                   inputAction: TextInputAction.next,
                                 ),
@@ -105,7 +105,7 @@ class _AddClaseFormState extends State<AddClaseForm> {
                                 CustomFormField(
                                   isLabelEnabled: false,
                                   controller: _tareasController,
-                                  focusNode: widget.materiaFocusNode,
+                                  focusNode: widget.tareasFocusNode,
                                   keyboardType: TextInputType.text,
                                   inputAction: TextInputAction.next,
                                 ),
@@ -123,7 +123,7 @@ class _AddClaseFormState extends State<AddClaseForm> {
                                 CustomFormField(
                                   isLabelEnabled: false,
                                   controller: _calificacionController,
-                                  focusNode: widget.materiaFocusNode,
+                                  focusNode: widget.calificacionFocusNode,
                                   keyboardType: TextInputType.text,
                                   inputAction: TextInputAction.done,
                                 ),
