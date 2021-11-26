@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Home/home.screen.dart';
 import 'package:planificador_escolar/services/clases.service.dart';
 import 'package:planificador_escolar/services/tareas.service.dart';
 import 'package:planificador_escolar/widgets/Tareas/tarea_field.dart';
@@ -234,7 +235,11 @@ class _ClaseItemFormState extends State<ClaseItemForm> {
                                           _isProcessing = false;
                                         });
 
-                                        Navigator.of(context).pop();
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => HomeScreen(),
+                                          ),
+                                        );
                                       }
                                     },
                                     child: Padding(

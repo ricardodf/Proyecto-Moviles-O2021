@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Clases/clase_individual.screen.dart';
 import 'package:planificador_escolar/screens/Tareas/add_tarea.screen.dart';
 import 'package:planificador_escolar/services/clases.service.dart';
 
@@ -124,7 +125,13 @@ class ProjectsExpansionTile extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => AddTareaScreen()));
+                          builder: (context) => ClaseIndividualScreen(
+                              currentNombre: nombre,
+                              currentMaestro: maestro,
+                              currentTareas: tareas,
+                              currentCalificacion: calificacion,
+                              currentHorario: DateTime.now().toString(),
+                              documentId: projectKey)));
                     },
                     icon: Icon(Icons.navigation_sharp),
                     color: Colors.blue,

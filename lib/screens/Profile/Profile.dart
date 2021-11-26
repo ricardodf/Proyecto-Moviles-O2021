@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:planificador_escolar/screens/Home/home.screen.dart';
+import 'package:planificador_escolar/screens/Login/login.screen.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class _ProfileState extends State<Profile> {
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-            colors: [Colors.blueAccent, Colors.orangeAccent],
+            colors: [Colors.teal, Colors.indigo],
             begin: Alignment.bottomRight,
             end: Alignment.topLeft,
           )),
@@ -63,88 +65,19 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           SizedBox(height: 20),
-          ListTile(
-            leading: Icon(Icons.settings, color: Colors.blue),
-            title: Text('Settings',
-                style: TextStyle(
-                    fontSize: 20, fontFamily: 'Product Sans Regular')),
-            trailing: Icon(Icons.keyboard_arrow_right),
-          ),
-          ListTile(
-            leading: Icon(Icons.support_agent_outlined, color: Colors.blue),
-            title: Text('Support',
-                style: TextStyle(
-                    fontSize: 20, fontFamily: 'Product Sans Regular')),
-            trailing: Icon(Icons.keyboard_arrow_right),
-          ),
-          ListTile(
-            leading: Icon(Icons.logout_outlined, color: Colors.blue),
-            title: Text('Log Out',
-                style: TextStyle(
-                    fontSize: 20, fontFamily: 'Product Sans Regular')),
-            trailing: Icon(Icons.keyboard_arrow_right),
-          ),
+          ActionChip(
+              label: Text("Cerrar sesión"),
+              onPressed: () {
+                logout(context);
+              }),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            SizedBox(height: 80),
-            ListTile(
-              leading: Icon(
-                Icons.calendar_today_outlined,
-                color: Colors.blue,
-              ),
-              title: const Text('Calendario',
-                  style: TextStyle(
-                      fontFamily: 'Product Sans Regular', fontSize: 20)),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.class__outlined, color: Colors.blue),
-              title: const Text('Clases',
-                  style: TextStyle(
-                      fontFamily: 'Product Sans Regular', fontSize: 20)),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.task_outlined, color: Colors.blue),
-              title: const Text('Tareas',
-                  style: TextStyle(
-                      fontFamily: 'Product Sans Regular', fontSize: 20)),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.grade, color: Colors.orange),
-              title: const Text('Calificaciones',
-                  style: TextStyle(
-                      fontFamily: 'Product Sans Regular', fontSize: 20)),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
     );
+  }
+
+  Future<void> logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }
