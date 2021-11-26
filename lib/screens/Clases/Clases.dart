@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Home/home.screen.dart';
 
 class Clases extends StatefulWidget {
   const Clases({Key? key}) : super(key: key);
@@ -22,7 +22,11 @@ class _ClasesState extends State<Clases> {
         title: const Text("Homework Planner"),
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(Icons.keyboard_return_outlined)),
+            icon: Icon(Icons.arrow_back, color: Colors.blueAccent),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            }),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
         ],
@@ -40,26 +44,19 @@ class _ClasesState extends State<Clases> {
         //PANEL LIST 1
         Container(
           margin: EdgeInsets.all(20),
-          //color: Colors.green,
+          color: Colors.green,
           child: ExpansionPanelList(
             animationDuration: Duration(milliseconds: 2000),
             children: [
               ExpansionPanel(
                 headerBuilder: (context, isExpanded) {
                   return ListTile(
-                    title: StreamBuilder<QuerySnapshot>(
-                      stream: FirebaseFirestore.instance
-                          .collection('clases')
-                          .snapshots(),
-                      builder: (context, snapshot) {
-                        if (!snapshot.hasData) return Text("Loading Data");
-                        return Text(
-                            snapshot.data!.docs[1]['Materia'].toString(),
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontFamily: 'Product Sans Regular'));
-                      },
+                    title: Text(
+                      'Seguridad en Redes',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Product Sans Regular'),
                     ),
                   );
                 },
@@ -70,40 +67,20 @@ class _ClasesState extends State<Clases> {
                         Icons.person,
                         color: Colors.blue,
                       ),
-                      title: StreamBuilder<QuerySnapshot>(
-                        stream: FirebaseFirestore.instance
-                            .collection('clases')
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (!snapshot.hasData) return Text("Loading Data");
-                          return Text(
-                              'Maestro: ' +
-                                  snapshot.data!.docs[1]['Maestro'].toString(),
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: 'Product Sans Regular'));
-                        },
-                      ),
+                      title: Text('Maestro:',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Product Sans Regular')),
                     ),
                     ListTile(
                       leading: Icon(
                         Icons.schedule_outlined,
                         color: Colors.blue,
                       ),
-                      title: StreamBuilder<QuerySnapshot>(
-                        stream: FirebaseFirestore.instance
-                            .collection('clases')
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (!snapshot.hasData) return Text("Loading Data");
-                          return Text(
-                              'Horario: ' +
-                                  snapshot.data!.docs[1]['Horario'].toString(),
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: 'Product Sans Regular'));
-                        },
-                      ),
+                      title: Text('Horario:',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Product Sans Regular')),
                     ),
                   ],
                 ),

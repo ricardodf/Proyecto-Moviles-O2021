@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Home/home.screen.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -10,7 +9,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +16,11 @@ class _ProfileState extends State<Profile> {
         title: const Text("Homework Planner"),
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(Icons.keyboard_return_outlined)),
+            icon: Icon(Icons.arrow_back, color: Colors.blueAccent),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            }),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
         ],
@@ -43,31 +45,23 @@ class _ProfileState extends State<Profile> {
           ),
           SizedBox(height: 25),
           Container(
-            child: StreamBuilder<QuerySnapshot>(
-              stream:
-                  FirebaseFirestore.instance.collection('users').snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) return Text("Loading Data");
-                return Text(snapshot.data!.docs[0]['name'].toString(),
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontFamily: 'Product Sans Regular'));
-              },
+            child: Text(
+              "Ricardo",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontFamily: 'Product Sans Regular'),
             ),
           ),
           Container(
-              child: StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance.collection('users').snapshots(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) return Text("Loading Data");
-              return Text(snapshot.data!.docs[0]['email'].toString(),
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                      fontFamily: 'Product Sans Regular'));
-            },
-          )),
+            child: Text(
+              "ricardo@gmail.com",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                  fontFamily: 'Product Sans Regular'),
+            ),
+          ),
           SizedBox(height: 20),
           ListTile(
             leading: Icon(Icons.settings, color: Colors.blue),
