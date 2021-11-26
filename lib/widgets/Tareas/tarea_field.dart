@@ -7,8 +7,6 @@ class CustomFormField extends StatelessWidget {
     required FocusNode focusNode,
     required TextInputType keyboardType,
     required TextInputAction inputAction,
-    this.isObscure = false,
-    this.isCapitalized = false,
     this.maxLines = 1,
     this.isLabelEnabled = true,
   })  : _emailController = controller,
@@ -21,8 +19,6 @@ class CustomFormField extends StatelessWidget {
   final FocusNode _emailFocusNode;
   final TextInputType _keyboardtype;
   final TextInputAction _inputAction;
-  final bool isObscure;
-  final bool isCapitalized;
   final int maxLines;
   final bool isLabelEnabled;
 
@@ -33,9 +29,6 @@ class CustomFormField extends StatelessWidget {
       controller: _emailController,
       focusNode: _emailFocusNode,
       keyboardType: _keyboardtype,
-      obscureText: isObscure,
-      textCapitalization:
-          isCapitalized ? TextCapitalization.words : TextCapitalization.none,
       textInputAction: _inputAction,
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
@@ -47,7 +40,7 @@ class CustomFormField extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.grey,
           ),
         ),
