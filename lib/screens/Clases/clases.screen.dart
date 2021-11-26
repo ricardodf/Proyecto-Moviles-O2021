@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:planificador_escolar/screens/Clases/Clases.dart';
+import 'package:planificador_escolar/screens/Clases/add_clase.screen.dart';
 import 'package:planificador_escolar/widgets/Clases/clases_list.dart';
 
 class ClasesScreen extends StatefulWidget {
@@ -21,9 +22,15 @@ class _ClasesScreenState extends State<ClasesScreen> {
             child: ClasesList()),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AddClaseScreen(),
+            ),
+          );
+        },
         child: const Icon(Icons.add),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.amber[900],
       ),
     );
   }
