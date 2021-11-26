@@ -40,7 +40,7 @@ class _ClasesState extends State<Clases> {
         //PANEL LIST 1
         Container(
           margin: EdgeInsets.all(20),
-          color: Colors.green,
+          //color: Colors.green,
           child: ExpansionPanelList(
             animationDuration: Duration(milliseconds: 2000),
             children: [

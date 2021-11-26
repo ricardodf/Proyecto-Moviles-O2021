@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:planificador_escolar/screens/Clases/clases.screen.dart';
+import 'package:planificador_escolar/screens/Home/home.screen.dart';
 import 'package:planificador_escolar/screens/Login/login.screen.dart';
 import 'package:planificador_escolar/screens/Profile/Profile.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ClasesScreen(),
+      home: HomeScreen(),
     );
   }
 }
