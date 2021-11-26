@@ -40,7 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             title: const Text("Homework Planner"),
             centerTitle: true,
-            leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
             actions: [
               IconButton(
                   onPressed: () {

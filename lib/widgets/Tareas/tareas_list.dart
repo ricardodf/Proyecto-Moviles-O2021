@@ -27,7 +27,7 @@ class TareasList extends StatelessWidget {
                 print(fechaEntrega);
 
                 return Card(
-                  color: Colors.deepPurple[100],
+                  color: Colors.teal[100],
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
