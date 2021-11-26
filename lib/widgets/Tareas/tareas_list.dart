@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:planificador_escolar/screens/Tareas/tarea_item.screen.dart';
+import 'package:planificador_escolar/screens/Tareas/tarea_individual.screen.dart';
 import 'package:planificador_escolar/services/tareas.service.dart';
 
 class TareasList extends StatelessWidget {
@@ -21,6 +21,10 @@ class TareasList extends StatelessWidget {
                 String docID = snapshot.data!.docs[index].id;
                 String titulo = tareaData['titulo'];
                 String clase = tareaData['clase'];
+                String fechaEntrega =
+                    tareaData['fechaEntrega'].toDate().toString();
+
+                print(fechaEntrega);
 
                 return Card(
                   color: Colors.deepPurple[100],
@@ -40,8 +44,9 @@ class TareasList extends StatelessWidget {
                             onPressed: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => TareaIndividualScreen(
-                                  currentTitle: titulo,
-                                  currentDescription: clase,
+                                  currentTitulo: titulo,
+                                  currentDescripcion: clase,
+                                  currentFechaEntrega: fechaEntrega,
                                   documentId: docID,
                                 ),
                               ),

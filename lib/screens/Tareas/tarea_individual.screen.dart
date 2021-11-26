@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:planificador_escolar/services/tareas.service.dart';
-import 'package:planificador_escolar/widgets/Tareas/tarea_individual.dart';
+import 'package:planificador_escolar/widgets/Tareas/tarea_form.dart';
 
 class TareaIndividualScreen extends StatefulWidget {
-  final String currentTitle;
-  final String currentDescription;
+  final String currentTitulo;
+  final String currentDescripcion;
+  final String currentFechaEntrega;
   final String documentId;
 
   TareaIndividualScreen({
-    required this.currentTitle,
-    required this.currentDescription,
+    required this.currentTitulo,
+    required this.currentDescripcion,
+    required this.currentFechaEntrega,
     required this.documentId,
   });
 
@@ -18,9 +20,9 @@ class TareaIndividualScreen extends StatefulWidget {
 }
 
 class _TareaIndividualScreenState extends State<TareaIndividualScreen> {
-  final FocusNode _titleFocusNode = FocusNode();
+  final FocusNode _tituloFocusNode = FocusNode();
 
-  final FocusNode _descriptionFocusNode = FocusNode();
+  final FocusNode _descripcionFocusNode = FocusNode();
 
   bool _isDeleting = false;
 
@@ -28,8 +30,8 @@ class _TareaIndividualScreenState extends State<TareaIndividualScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _titleFocusNode.unfocus();
-        _descriptionFocusNode.unfocus();
+        _tituloFocusNode.unfocus();
+        _descripcionFocusNode.unfocus();
       },
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -43,11 +45,11 @@ class _TareaIndividualScreenState extends State<TareaIndividualScreen> {
               end: Alignment.topLeft,
             )),
           ),
-          title: Text("Tareas"),
+          title: Text("Editar Tarea"),
           actions: [
             _isDeleting
-                ? Padding(
-                    padding: const EdgeInsets.only(
+                ? const Padding(
+                    padding: EdgeInsets.only(
                       top: 10.0,
                       bottom: 10.0,
                       right: 16.0,
@@ -60,7 +62,7 @@ class _TareaIndividualScreenState extends State<TareaIndividualScreen> {
                     ),
                   )
                 : IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.delete,
                       color: Colors.redAccent,
                       size: 32,
@@ -91,12 +93,12 @@ class _TareaIndividualScreenState extends State<TareaIndividualScreen> {
               bottom: 20.0,
             ),
             child: TareaItemForm(
-              documentId: widget.documentId,
-              titleFocusNode: _titleFocusNode,
-              descriptionFocusNode: _descriptionFocusNode,
-              currentTitle: widget.currentTitle,
-              currentDescription: widget.currentDescription,
-            ),
+                documentId: widget.documentId,
+                tituloFocusNode: _tituloFocusNode,
+                descripcionFocusNode: _descripcionFocusNode,
+                currentTitulo: widget.currentTitulo,
+                currentDescripcion: widget.currentDescripcion,
+                currentFechaEntrega: widget.currentFechaEntrega),
           ),
         ),
       ),

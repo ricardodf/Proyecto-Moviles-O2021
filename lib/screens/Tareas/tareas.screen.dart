@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Tareas/add_tarea.screen.dart';
 import 'package:planificador_escolar/widgets/Tareas/tareas_list.dart';
 
 class TareasScreen extends StatefulWidget {
@@ -30,67 +31,15 @@ class _TareasScreenState extends State<TareasScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _showDialog();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AddTareaScreen(),
+            ),
+          );
         },
         child: const Icon(Icons.add),
         backgroundColor: Colors.amber[900],
       ),
-    );
-  }
-
-  void _showDialog() {
-    // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          title: new Text("Nueva Clase"),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                color: Colors.white,
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Nombre'),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Maestro'),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Horario'),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: RaisedButton(
-                          onPressed: () {},
-                          child: Text('Crear'),
-                          color: Colors.deepOrange,
-                          textColor: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
-          actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            new TextButton(
-              child: new Text("Close"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
     );
   }
 }
