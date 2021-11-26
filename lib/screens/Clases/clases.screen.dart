@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:planificador_escolar/screens/Clases/Clases.dart';
@@ -14,6 +16,8 @@ class _ClasesScreenState extends State<ClasesScreen> {
 
   bool _expanded = false, _expanded2 = false, _expanded3 = false;
 
+  final user = FirebaseAuth.instance.currentUser;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +31,25 @@ class _ClasesScreenState extends State<ClasesScreen> {
             child: ExpansionPanelList(
               animationDuration: Duration(milliseconds: 1000),
               children: [
+                //AQUI MANDAMOS LLAMAR LA FUNCIÓN PARA IMPRIMIR LOS CONTENEDORES
                 ExpansionPanel(
                   headerBuilder: (context, isExpanded) {
                     return ListTile(
-                      title: Text(
-                        'Seguridad en Redes',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontFamily: 'Product Sans Regular'),
+                      //EMPIEZA TEXTO
+
+                      title: StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('clases')
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) return Text("Loading Data");
+                          return Text(
+                              snapshot.data!.docs[1]['Materia'].toString(),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontFamily: 'Product Sans Regular'));
+                        },
                       ),
                     );
                   },
@@ -46,40 +60,83 @@ class _ClasesScreenState extends State<ClasesScreen> {
                           Icons.person,
                           color: Colors.blue,
                         ),
-                        title: Text('Maestro:',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Product Sans Regular')),
+                        title: StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection('clases')
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) return Text("Loading Data");
+                            return Text(
+                                'Maestro: ' +
+                                    snapshot.data!.docs[1]['Maestro']
+                                        .toString(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Product Sans Regular'));
+                          },
+                        ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.schedule_outlined,
                           color: Colors.blue,
                         ),
-                        title: Text('Horario:',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Product Sans Regular')),
+                        title: StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection('clases')
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) return Text("Loading Data");
+                            return Text(
+                                'Horario: ' +
+                                    snapshot.data!.docs[1]['Horario']
+                                        .toString(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Product Sans Regular'));
+                          },
+                        ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.menu_book_rounded,
                           color: Colors.blue,
                         ),
-                        title: Text('Tareas: ',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Product Sans Regular')),
+                        title: StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection('clases')
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) return Text("Loading Data");
+                            return Text(
+                                'Tareas: ' +
+                                    snapshot.data!.docs[1]['Tareas'].toString(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Product Sans Regular'));
+                          },
+                        ),
                       ),
                       ListTile(
                         leading: Icon(
                           Icons.grade_rounded,
                           color: Colors.blue,
                         ),
-                        title: Text('Calificación: ',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Product Sans Regular')),
+                        title: StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection('clases')
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) return Text("Loading Data");
+                            return Text(
+                                'Calificación: ' +
+                                    snapshot.data!.docs[1]['Calificacion']
+                                        .toString(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Product Sans Regular'));
+                          },
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,

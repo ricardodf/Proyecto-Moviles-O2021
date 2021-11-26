@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Clases extends StatefulWidget {
@@ -46,12 +47,19 @@ class _ClasesState extends State<Clases> {
               ExpansionPanel(
                 headerBuilder: (context, isExpanded) {
                   return ListTile(
-                    title: Text(
-                      'Seguridad en Redes',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Product Sans Regular'),
+                    title: StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection('clases')
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (!snapshot.hasData) return Text("Loading Data");
+                        return Text(
+                            snapshot.data!.docs[1]['Materia'].toString(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Product Sans Regular'));
+                      },
                     ),
                   );
                 },
@@ -62,20 +70,40 @@ class _ClasesState extends State<Clases> {
                         Icons.person,
                         color: Colors.blue,
                       ),
-                      title: Text('Maestro:',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Product Sans Regular')),
+                      title: StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('clases')
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) return Text("Loading Data");
+                          return Text(
+                              'Maestro: ' +
+                                  snapshot.data!.docs[1]['Maestro'].toString(),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Product Sans Regular'));
+                        },
+                      ),
                     ),
                     ListTile(
                       leading: Icon(
                         Icons.schedule_outlined,
                         color: Colors.blue,
                       ),
-                      title: Text('Horario:',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Product Sans Regular')),
+                      title: StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('clases')
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) return Text("Loading Data");
+                          return Text(
+                              'Horario: ' +
+                                  snapshot.data!.docs[1]['Horario'].toString(),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Product Sans Regular'));
+                        },
+                      ),
                     ),
                   ],
                 ),
