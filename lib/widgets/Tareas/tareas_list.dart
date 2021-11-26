@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:planificador_escolar/screens/Tareas/tarea_item.screen.dart';
 import 'package:planificador_escolar/services/tareas.service.dart';
 
 class TareasList extends StatelessWidget {
@@ -36,7 +37,15 @@ class TareasList extends StatelessWidget {
                         children: <Widget>[
                           TextButton(
                             child: const Text('VER'),
-                            onPressed: () {/* ... */},
+                            onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => TareaIndividualScreen(
+                                  currentTitle: titulo,
+                                  currentDescription: clase,
+                                  documentId: docID,
+                                ),
+                              ),
+                            ),
                           ),
                           const SizedBox(width: 8),
                         ],

@@ -33,7 +33,7 @@ class _TareasScreenState extends State<TareasScreen> {
           _showDialog();
         },
         child: const Icon(Icons.add),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.amber[900],
       ),
     );
   }
